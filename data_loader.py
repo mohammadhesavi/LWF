@@ -30,6 +30,8 @@ class cifar10(CIFAR10):
 
 		# Select subset of classes
 		if self.train:
+			self.train_data = self.data
+			self.train_labels = self.targets
 			train_data = []
 			train_labels = []
 
@@ -52,6 +54,8 @@ class cifar10(CIFAR10):
 				self.mean_image = np.mean(self.train_data, axis=0)
 
 		else:
+			self.test_data = self.data
+			self.test_labels = self.targets
 			test_data = []
 			test_labels = []
 
@@ -104,3 +108,8 @@ class cifar100(cifar10):
 	test_list = [
 		['test', 'f0ef6b0ae62326f3e7ffdfab6717acfc'],
 	]
+	meta = {
+		'filename': 'meta',
+		'key': 'fine_label_names',
+		'md5': '7973b15100ade9c7d40fb424638fde48',
+        }
